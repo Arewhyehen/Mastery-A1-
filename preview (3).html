@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Evolve Mastery</title>
+
+  <style>
+    :root {
+      --magenta: #c2186a;
+      --dark-magenta: #94114f;
+      --pink: #f45ca3;
+      --soft-pink: #fce8f2;
+      --pale-pink: #fff4f9;
+      --white: #ffffff;
+      --light-grey: #f5f5f5;
+      --mid-grey: #d9d9d9;
+      --dark-grey: #333333;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      background: var(--pale-pink);
+      color: var(--dark-grey);
+    }
+
+    header {
+      background: var(--white);
+      border-bottom: 6px solid var(--magenta);
+      padding: 16px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--magenta);
+      letter-spacing: 1px;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--dark-grey);
+      font-weight: 700;
+    }
+
+    .login-btn {
+      background: var(--magenta);
+      color: white;
+      padding: 10px 18px;
+      border-radius: 24px;
+    }
+
+    .teacher-photo {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--magenta);
+    }
+
+    .hero {
+      padding: 90px 8%;
+      background: linear-gradient(135deg, var(--magenta), var(--pink));
+      color: white;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 54px;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 21px;
+      line-height: 1.6;
+      max-width: 780px;
+      margin: 0 auto 34px;
+    }
+
+    .primary-btn {
+      background: white;
+      color: var(--magenta);
+      padding: 16px 30px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 800;
+      display: inline-block;
+    }
+
+    .pink-banner {
+      background: var(--soft-pink);
+      padding: 28px 8%;
+      text-align: center;
+      border-top: 4px solid var(--magenta);
+      border-bottom: 4px solid var(--magenta);
+    }
+
+    .pink-banner h2 {
+      color: var(--magenta);
+      font-size: 30px;
+      margin-bottom: 10px;
+    }
+
+    .pink-banner p {
+      font-size: 18px;
+    }
+
+    .unit-section {
+      padding: 60px 8%;
+      background: var(--white);
+      text-align: center;
+    }
+
+    .unit-section h2 {
+      color: var(--magenta);
+      font-size: 38px;
+      margin-bottom: 12px;
+    }
+
+    .unit-section p {
+      font-size: 18px;
+      margin-bottom: 32px;
+    }
+
+    .unit-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .unit-tabs a {
+      background: var(--magenta);
+      color: white;
+      text-decoration: none;
+      padding: 20px 48px;
+      border-radius: 16px;
+      font-weight: 800;
+      font-size: 20px;
+      box-shadow: 0 8px 18px rgba(194, 24, 106, 0.25);
+    }
+
+    .unit-tabs a:hover {
+      background: var(--dark-magenta);
+      transform: translateY(-3px);
+    }
+
+    .features {
+      padding: 70px 8%;
+      background: var(--pale-pink);
+      text-align: center;
+    }
+
+    .features h2 {
+      color: var(--magenta);
+      font-size: 36px;
+      margin-bottom: 35px;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .feature-card {
+      background: white;
+      border: 2px solid var(--soft-pink);
+      border-radius: 24px;
+      padding: 30px;
+      text-align: left;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+    }
+
+    .feature-card h3 {
+      color: var(--magenta);
+      margin-bottom: 12px;
+      font-size: 22px;
+    }
+
+    .feature-card p {
+      line-height: 1.5;
+    }
+
+    .ai-section {
+      background: linear-gradient(135deg, var(--dark-magenta), var(--magenta));
+      color: white;
+      padding: 70px 8%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .ai-section h2 {
+      font-size: 38px;
+      margin-bottom: 18px;
+    }
+
+    .ai-section p {
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    .chat-box {
+      background: white;
+      border-radius: 24px;
+      padding: 26px;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.18);
+      color: var(--dark-grey);
+    }
+
+    .message {
+      padding: 14px 18px;
+      border-radius: 18px;
+      margin-bottom: 14px;
+      max-width: 85%;
+      line-height: 1.4;
+    }
+
+    .bot {
+      background: var(--light-grey);
+    }
+
+    .student {
+      background: var(--magenta);
+      color: white;
+      margin-left: auto;
+    }
+
+    footer {
+      background: var(--dark-grey);
+      color: white;
+      text-align: center;
+      padding: 30px;
+    }
+
+    /* Unit page preview section */
+    .unit-page {
+      padding: 70px 8%;
+      background: white;
+      text-align: center;
+    }
+
+    .unit-page h2 {
+      color: var(--magenta);
+      font-size: 36px;
+      margin-bottom: 12px;
+    }
+
+    .practice-grid {
+      margin-top: 35px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .practice-card {
+      background: var(--soft-pink);
+      border: 2px solid var(--magenta);
+      border-radius: 22px;
+      padding: 34px;
+      text-decoration: none;
+      color: var(--dark-grey);
+      font-size: 22px;
+      font-weight: 800;
+    }
+
+    .practice-card:hover {
+      background: var(--magenta);
+      color: white;
+    }
+
+    .ai-card {
+      grid-column: span 2;
+      background: var(--magenta);
+      color: white;
+    }
+
+    @media (max-width: 900px) {
+      header {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      nav {
+        display: none;
+      }
+
+      .hero h1 {
+        font-size: 40px;
+      }
+
+      .feature-grid,
+      .ai-section,
+      .practice-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .ai-card {
+        grid-column: span 1;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">EVOLVE MASTERY</div>
+
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Units</a>
+      <a href="#">Practice</a>
+      <a href="#">AI Coach</a>
+      <a href="#" class="login-btn">Student Login</a>
+    </nav>
+
+    <img src="teacher-photo.jpg" class="teacher-photo" alt="Teacher photo">
+  </header>
+
+  <section class="hero">
+    <h1>Welcome to Evolve Mastery</h1>
+    <p>
+      Review your English lessons, practise speaking, improve listening,
+      and chat with your AI English Coach after class.
+    </p>
+    <a href="#units" class="primary-btn">Start Practising</a>
+  </section>
+
+  <section class="pink-banner">
+    <h2>Study English at your own pace</h2>
+    <p>Choose your unit, practise the lesson, and build confidence step by step.</p>
+  </section>
+
+  <section class="unit-section" id="units">
+    <h2>Choose Your Unit</h2>
+    <p>Click the unit you want to practise.</p>
+
+    <div class="unit-tabs">
+      <a href="unit1.html">Unit 1</a>
+      <a href="unit2.html">Unit 2</a>
+      <a href="unit3.html">Unit 3</a>
+      <a href="unit4.html">Unit 4</a>
+    </div>
+  </section>
+
+  <section class="features">
+    <h2>What You Can Practise</h2>
+
+    <div class="feature-grid">
+      <div class="feature-card">
+        <h3>Vocabulary Review</h3>
+        <p>Review important words from class with simple examples.</p>
+      </div>
+
+      <div class="feature-card">
+        <h3>Speaking Practice</h3>
+        <p>Practise short conversations and real-life speaking tasks.</p>
+      </div>
+
+      <div class="feature-card">
+        <h3>Listening Practice</h3>
+        <p>Listen, repeat, and understand useful English phrases.</p>
+      </div>
+
+      <div class="feature-card">
+        <h3>Grammar Practice</h3>
+        <p>Practise useful sentence patterns in a simple way.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="ai-section">
+    <div>
+      <h2>Chat with your AI English Coach</h2>
+      <p>
+        Ask questions, check your answers, practise conversations,
+        correct mistakes, and role-play real situations.
+      </p>
+    </div>
+
+    <div class="chat-box">
+      <div class="message bot">Hello! Let’s practise Unit 1. Where are you from?</div>
+      <div class="message student">I from Thailand.</div>
+      <div class="message bot">Good try! Say: “I’m from Thailand.” Now try again.</div>
+      <div class="message student">I’m from Thailand.</div>
+    </div>
+  </section>
+
+  <section class="unit-page">
+    <h2>Example Unit Page</h2>
+    <p>When students click a unit, they will see these options.</p>
+
+    <div class="practice-grid">
+      <a href="#" class="practice-card">Vocabulary Review</a>
+      <a href="#" class="practice-card">Speaking Practice</a>
+      <a href="#" class="practice-card">Listening Practice</a>
+      <a href="#" class="practice-card">Grammar Practice</a>
+      <a href="#" class="practice-card ai-card">Chat with your AI English Coach</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Evolve Mastery | Student English Review Platform</p>
+  </footer>
+
+</body>
+</html>
